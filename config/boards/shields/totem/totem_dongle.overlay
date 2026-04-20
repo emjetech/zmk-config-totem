@@ -9,6 +9,7 @@
 / {
     chosen {
         zmk,kscan = &mock_kscan;
+        zephyr,display = &oled;
         wakeup-source;
     };
 
