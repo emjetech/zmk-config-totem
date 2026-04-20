@@ -1,11 +1,24 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include "totem.dtsi"
+
+&totem_layout {
+    transform = <&default_transform>;
+};
 
 / {
     chosen {
+        zmk,kscan = &mock_kscan;
+        zmk,physical-layout = &totem_layout;
         zephyr,display = &oled;
-        zmk,kscan = &kscan0;
-        zmk,matrix_transform = &default_transform;
     };
+
+    mock_kscan: mock_kscan_0 {
+        compatible = "zmk,kscan-mock";
+        columns = <0>;
+        rows = <0>;
+        events = <0>;
+    };
+
 
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
